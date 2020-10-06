@@ -92,13 +92,18 @@ function checkForWin () {
   var currentCell = board.cells
 
   for (var i = 0; i < currentCell.length; i++) {
-    if (currentCell[i].isMine == true && currentCell[i].isMarked == true) {
-      
-      lib.displayMessage('You win!')
+
+    if (currentCell[i].isMine == true && currentCell[i].isMarked == false) {
+
+      return;
     }
-    return;
-  }
+    else if (currentCell[i].isMine == false && currentCell[i].isMarked == true) {
+
+      return;
+    }
     
+  }
+    lib.displayMessage('You win!')
 }
 
 function countSurroundingMines (cell) {
